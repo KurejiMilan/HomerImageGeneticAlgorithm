@@ -1,2 +1,2 @@
-# HomerImageGeneticAlgorithm
-recreating home simpson image using the genetic algorithm.
+# ImageGeneticAlgorithm
+recreating the simpson character image using the genetic algorithm.
