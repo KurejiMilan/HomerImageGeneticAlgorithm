@@ -10,12 +10,14 @@ PImage homer;
 color[] homerColor= new color[2050];
 int totalPopulation=2000;
 int generation = 1;
+int index=0;
 
 population homerGen= new population(totalPopulation);
 
 void setup(){
   size(1200, 650);
   homer = loadImage("homer.png");
+  frameRate(20);
   colorMode(RGB);
   int c=0;
   homer.loadPixels();
@@ -25,16 +27,24 @@ void setup(){
       c++;
     }  
   }
-  homerGen.evalFitness();
 }
 
 void draw(){
+  homerGen.evalFitness();
+  display();
+  homerGen.newGeneration();
+  homerGen.mutate();
+  generation++;
+}
+
+void display(){
   background(0);
   int c=0;
+  float m=homerGen.getMaxFitness();
   for(int i=0; i<41; i++){
     for(int j=0; j<50;j++){
-      stroke(homerColor[c]);
-      fill(homerColor[c]);
+      stroke(homerGen.pic[index].red[c], homerGen.pic[index].green[c], homerGen.pic[index].blue[c]);
+      fill(homerGen.pic[index].red[c], homerGen.pic[index].green[c], homerGen.pic[index].blue[c]);
       rect(i+(11*i), j+(11*j), 11, 11);
       c++;
     }  
@@ -45,7 +55,5 @@ void draw(){
   text("generation=",2, 630);
   text(generation,textWidth("generation="), 630);
   text("max fitness=", 200, 630);
-  text(homerGen.getMaxFitness(), 200+textWidth("max fitness="), 630);
-  
-  generation++;
+  text(m, 200+textWidth("max fitness="), 630);
 }
