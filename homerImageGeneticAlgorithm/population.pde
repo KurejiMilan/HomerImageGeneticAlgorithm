@@ -21,8 +21,8 @@ class population{
     }
   }
   
-  float getMaxFitness(){
-    float f=pic[0].totalFitness;
+  int getMaxFitness(){
+    int f=pic[0].totalFitness;
     index=0;
     for(int i=1; i<totalPopulation; i++){
       if(pic[i].totalFitness>f){
@@ -48,13 +48,13 @@ class population{
   }
   
   pixel selection(){
-    float per = random(1.0001);
+    float per = random(1);
     int c=0;
     do{
       per-=pic[c].prob;
       c++;
-      if(c>=2000)break;
-    }while(!(per<0));
+      //if(c>=2000)break;
+    }while(per>0);
     --c;
     return pic[c];
   }
@@ -104,19 +104,19 @@ class population{
      for(int i=0; i<totalp; i++){
        //mutate red value
        for(int j=0; j<2050; j++){
-         if(random(1)<.01){
+         if(random(1)<.001){
            pic[i].red[j]= int(random(255.8));
          }
        }
        //mutate green value
        for(int j=0; j<2050; j++){
-         if(random(1)<.01){
+         if(random(1)<.001){
            pic[i].green[j]= int(random(255.8));
          }
        }
        //mutate blue value
        for(int j=0; j<2050; j++){
-         if(random(1)<.01){
+         if(random(1)<.001){
            pic[i].blue[j]= int(random(255.8));
          }
        }

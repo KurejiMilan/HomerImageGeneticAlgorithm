@@ -5,12 +5,12 @@
 //draw characters from the simpsons
 //correct traits are passed from generation to generation
 //untill the population could draw the characters with high accuracy
-
+//2460000 is the max fitness one can reach
 PImage homer; 
 color[] homerColor= new color[2050];
-int totalPopulation=2000;
-int generation = 1;
-int index=0;
+int totalPopulation=5000;
+int generation = 1, index=0, mFitScored;
+boolean mutationComplete = false;
 
 population homerGen= new population(totalPopulation);
 
@@ -30,17 +30,22 @@ void setup(){
 }
 
 void draw(){
-  homerGen.evalFitness();
+  if(!mutationComplete){
+    homerGen.evalFitness();
+    mFitScored=homerGen.getMaxFitness();
+  }
+  if(mFitScored==2460000)mutationComplete=true;
   display();
-  homerGen.newGeneration();
-  homerGen.mutate();
-  generation++;
+  if(!mutationComplete){
+    homerGen.newGeneration();
+    homerGen.mutate();
+  }
+  if(!mutationComplete)generation++;
 }
 
 void display(){
   background(0);
   int c=0;
-  float m=homerGen.getMaxFitness();
   for(int i=0; i<41; i++){
     for(int j=0; j<50;j++){
       stroke(homerGen.pic[index].red[c], homerGen.pic[index].green[c], homerGen.pic[index].blue[c]);
@@ -55,5 +60,8 @@ void display(){
   text("generation=",2, 630);
   text(generation,textWidth("generation="), 630);
   text("max fitness=", 200, 630);
-  text(m, 200+textWidth("max fitness="), 630);
+  text(mFitScored, 200+textWidth("max fitness="), 630);
+  if(mutationComplete){
+    text("completed", 500, 630);
+  }
 }
