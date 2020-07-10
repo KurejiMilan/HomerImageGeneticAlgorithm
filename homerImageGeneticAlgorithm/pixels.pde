@@ -1,3 +1,6 @@
+//pixel class holds the dna/genes in this case the rgb values
+//it also holds its fitness levels and probability of being selected
+//in random pool selection
 
 class pixel{
   int rFit, gFit, bFit, totalFitness; 
@@ -25,6 +28,8 @@ class pixel{
     }
   }
   
+  
+  //calculates the fitness based on the rgb values
   int calcFitness(){
     rFit=0;
     gFit=0;
@@ -46,8 +51,9 @@ class pixel{
     //print(totalFitness,"\n");
     return totalFitness;
   }
-  
+ 
+  //calculates the probability
   void calcProbability(float x){
-    prob = totalFitness/x;
+    prob = (totalFitness/x)*100;
   }
 }

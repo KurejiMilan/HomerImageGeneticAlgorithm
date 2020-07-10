@@ -8,7 +8,7 @@
 //2460000 is the max fitness one can reach
 PImage homer; 
 color[] homerColor= new color[2050];
-int totalPopulation=5000;
+int totalPopulation=4000;
 int generation = 1, index=0, mFitScored;
 boolean mutationComplete = false;
 
@@ -62,6 +62,6 @@ void display(){
   text("max fitness=", 200, 630);
   text(mFitScored, 200+textWidth("max fitness="), 630);
   if(mutationComplete){
-    text("completed", 500, 630);
+    text("evolution completed", 500, 630);
   }
 }

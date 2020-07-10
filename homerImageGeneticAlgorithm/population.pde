@@ -1,3 +1,6 @@
+//this class handles all the function of population
+//like selection, crossover, mutation
+
 class population{
   int totalp=0;
   pixel[] pic;
@@ -11,6 +14,9 @@ class population{
     }
   }
   
+  //this function evaluates fitness of all individual
+  //but each individual computes it own fitness by
+  //evaluateing the genes in this case pixel value
   void evalFitness(){
     normalizer =0; 
     for(int i=0; i<totalp; i++){
@@ -21,6 +27,8 @@ class population{
     }
   }
   
+  //this funciton finds the fax fitness and
+  //the individual with that fitness value
   int getMaxFitness(){
     int f=pic[0].totalFitness;
     index=0;
@@ -33,6 +41,9 @@ class population{
     return f;
   }
   
+  //this function gives new generation from the
+  //parent generation by random selection and
+  //mutation process
   void newGeneration(){
     pixel[] newpic= new pixel[totalp];
     for(int i=0; i<totalp; i++){
@@ -47,18 +58,27 @@ class population{
     }
   }
   
+  //random selection of two parent individual based on
+  //their fitness, higher the fitness higher is the 
+  //probability of being selected
   pixel selection(){
-    float per = random(1);
     int c=0;
-    do{
-      per-=pic[c].prob;
-      c++;
-      //if(c>=2000)break;
-    }while(per>0);
+      float per = random(100);
+      c=0;
+      do{
+        per-=pic[c].prob;
+        c++;
+        if(c>=totalPopulation){
+          break;
+        }
+      }while(per>0);
     --c;
     return pic[c];
   }
   
+  //this funciton now mixes the genes/DNA
+  //in this case the pixel value from
+  //the selected parents
   pixel crossOver(pixel p1, pixel p2){
     //cross over of the red value of pixel
     for(int i=0; i<2050; i++){
