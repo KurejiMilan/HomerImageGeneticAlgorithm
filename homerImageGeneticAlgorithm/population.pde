@@ -122,22 +122,21 @@ class population{
   //this function is used to mutate the genes i.e. the rgb values
   void mutate(){
      for(int i=0; i<totalp; i++){
-       //mutate red value
        for(int j=0; j<2050; j++){
-         if(random(1)<.001){
-           pic[i].red[j]= int(random(255.8));
+         if(pic[i].red[j]!=red(homerColor[j])){
+           if(random(1)<.01){
+             pic[i].red[j]= int(random(255.8));
+           }
          }
-       }
-       //mutate green value
-       for(int j=0; j<2050; j++){
-         if(random(1)<.001){
-           pic[i].green[j]= int(random(255.8));
+         if(pic[i].green[j]!=green(homerColor[j])){
+           if(random(1)<.01){
+             pic[i].green[j]= int(random(255.8));
+           }
          }
-       }
-       //mutate blue value
-       for(int j=0; j<2050; j++){
-         if(random(1)<.001){
-           pic[i].blue[j]= int(random(255.8));
+         if(pic[i].blue[j]!=blue(homerColor[j])){
+           if(random(1)<.01){
+             pic[i].blue[j]= int(random(255.8));
+           }
          }
        }
      }

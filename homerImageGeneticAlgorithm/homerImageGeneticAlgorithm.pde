@@ -8,7 +8,7 @@
 //2460000 is the max fitness one can reach
 PImage homer; 
 color[] homerColor= new color[2050];
-int totalPopulation=4000;
+int totalPopulation=100;
 int generation = 1, index=0, mFitScored;
 boolean mutationComplete = false;
 
@@ -17,7 +17,7 @@ population homerGen= new population(totalPopulation);
 void setup(){
   size(1200, 650);
   homer = loadImage("homer.png");
-  frameRate(20);
+  frameRate(2);
   colorMode(RGB);
   int c=0;
   homer.loadPixels();
