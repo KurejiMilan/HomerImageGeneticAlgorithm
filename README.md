@@ -7,8 +7,8 @@ to breed so that their genetic meterial i.e.DNA, we are interested in, is passed
 is repeated again and again so best of the best genetic materials are only passed to next generation.
 
 In this program the image is a entity of the population and the genetic material is the pixel RGB value.
-<img src="https://raw.githubusercontent.com/KurejiMilan/HomerImageGeneticAlgorithm/master/homerImageGeneticAlgorithm/homer.png"
-alt="homer pixel art" height="150px" width="150px">
+
+<img src="https://raw.githubusercontent.com/KurejiMilan/HomerImageGeneticAlgorithm/master/homerImageGeneticAlgorithm/homer.png" alt="homer pixel art" height="150px" width="150px">
 
 ## Technologies and programming language 
 * Processing
