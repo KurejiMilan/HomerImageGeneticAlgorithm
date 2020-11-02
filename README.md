@@ -22,7 +22,7 @@ I recently found that processing is not that good when it comes to the floating 
 high fraction resolution, i don't think it's only on my machine, which could cause problems when calculating
 the fitness of the entity and when performing selection of best sample based on their probability.
 
-## Improvments
+## Improvements
 The floating point operation should be rewritten for integers on the pool selection operation as the
 floating point value won't represent the true probability  as processing is only supports float 0.0 .
 
